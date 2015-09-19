@@ -1,0 +1,14 @@
+apply plugin: 'groovy'
+
+dependencies {
+    compile localGroovy()
+}
+
+task runScript(dependsOn: 'classes', type: JavaExec){
+    description 'Run Groovy Script'
+
+    main = 'FirstClass'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+defaultTasks 'runScript'
